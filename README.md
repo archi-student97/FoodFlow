@@ -141,8 +141,32 @@ Important:
 - Frontend uses `/bapi/*` rewrite to `NEXT_PUBLIC_API_BASE_URL/api/*`.
 - If `NEXT_PUBLIC_API_BASE_URL` is missing in production, build will fail intentionally.
 - Deploy backend first, then frontend.
+- Backend root URL may show `404` and that is normal. Verify backend using `/api/*` routes.
 
 This setup avoids multi-service function collisions.
+
+## Deployment Verification Checklist
+
+After both projects are deployed:
+
+1. Backend health check:
+- Open `https://<backend-domain>.vercel.app/api/auth/me`
+- Expected response: JSON `401 Unauthorized` (this confirms backend is live)
+
+2. Frontend API rewrite check:
+- Open `https://<frontend-domain>.vercel.app/bapi/auth/me`
+- Expected response: JSON (not HTML)
+
+3. Auth flow check:
+- Login from frontend
+- Click logout
+- Navbar should switch from `Logout (...)` to `Login` immediately
+
+## Common Deploy Errors
+
+- `Unexpected token '<', '<!DOCTYPE ...' is not valid JSON`:
+  - Cause: frontend is receiving HTML page instead of backend JSON
+  - Fix: set frontend env `NEXT_PUBLIC_API_BASE_URL` to backend domain and redeploy frontend
 
 ## Scripts
 
