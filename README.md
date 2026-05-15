@@ -129,6 +129,12 @@ Then set this env in frontend Vercel project:
 - Example: `NEXT_PUBLIC_API_BASE_URL=https://your-backend-project.vercel.app`
 - If this is missing, frontend `/bapi/*` calls may fail or auth state may behave incorrectly.
 
+Fresh deploy order (important):
+1. Deploy backend project first (`backend/` as Root Directory).
+2. Copy backend production URL.
+3. Set frontend env `NEXT_PUBLIC_API_BASE_URL` to that backend URL.
+4. Deploy frontend project (repo root as Root Directory).
+
 This setup avoids multi-service function collisions.
 
 ## Scripts
