@@ -1,0 +1,1 @@
+export default function OwnerRestaurantsPage() { return <div className="rounded-2xl border bg-white p-6"><h1 className="text-2xl font-bold">Restaurant Management</h1><p className="text-zinc-600">Create/Edit/Delete restaurant UI goes here (frontend ready).</p></div>; }

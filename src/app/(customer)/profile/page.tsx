@@ -1,0 +1,1 @@
+export default function ProfilePage() { return <div className="rounded-2xl border bg-white p-6"><h1 className="text-3xl font-bold">Profile</h1><p className="mt-2 text-zinc-600">Frontend-ready user profile and preferences UI.</p></div>; }

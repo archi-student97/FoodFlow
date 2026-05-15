@@ -1,0 +1,1 @@
+export default function FavoritesPage() { return <div className="rounded-2xl border bg-white p-6"><h1 className="text-3xl font-bold">Favorites</h1><p className="mt-2 text-zinc-600">No favorites yet. Start adding from restaurants.</p></div>; }

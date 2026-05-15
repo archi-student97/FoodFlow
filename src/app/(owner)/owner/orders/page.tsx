@@ -1,0 +1,1 @@
+export default function OwnerOrdersPage() { return <div className="rounded-2xl border bg-white p-6"><h1 className="text-2xl font-bold">Owner Orders</h1><p className="text-zinc-600">Incoming order cards and status controls UI.</p></div>; }
