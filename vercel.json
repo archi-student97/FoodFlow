@@ -1,11 +1,12 @@
 {
   "experimentalServices": {
     "frontend": {
+      "mount": "/",
       "framework": "nextjs"
     },
     "backend": {
       "entrypoint": "backend",
-      "routePrefix": "backend",
+      "mount": "/backend",
       "framework": "nextjs"
     }
   }
