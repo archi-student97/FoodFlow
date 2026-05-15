@@ -126,6 +126,8 @@ Use **2 separate Vercel projects** for stable deployment.
 
 Then set this env in frontend Vercel project:
 - `NEXT_PUBLIC_API_BASE_URL=<backend-vercel-url>`
+- Example: `NEXT_PUBLIC_API_BASE_URL=https://your-backend-project.vercel.app`
+- If this is missing, frontend `/bapi/*` calls may fail or auth state may behave incorrectly.
 
 This setup avoids multi-service function collisions.
 
