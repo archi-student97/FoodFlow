@@ -1,13 +1,3 @@
 {
-  "experimentalServices": {
-    "frontend": {
-      "mount": "/",
-      "framework": "nextjs"
-    },
-    "backend": {
-      "entrypoint": "backend",
-      "subdomain": "api",
-      "framework": "nextjs"
-    }
-  }
+  "framework": "nextjs"
 }
