@@ -9,7 +9,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@google/genai": "^2.2.0",
     "bcryptjs": "^3.0.3",
     "cloudinary": "^2.10.0",
     "cookie": "^1.1.1",
@@ -32,4 +31,3 @@
     "typescript": "^5"
   }
 }
-
