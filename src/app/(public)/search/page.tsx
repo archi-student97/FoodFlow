@@ -89,34 +89,40 @@ export default function SearchPage() {
         <button
           type="button"
           onClick={() => runSearch("Trending food this week")}
-          className="text-left"
+          className="group text-left"
         >
-          <Card className="rounded-2xl border-orange-100 bg-white/90 p-4 transition hover:-translate-y-0.5 hover:shadow-[0_12px_24px_rgba(249,115,22,0.14)]">
-          <p className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-lg bg-orange-100 text-orange-700"><TrendingUp className="h-4 w-4" /></p>
-          <p className="text-sm font-bold text-zinc-900">Trending Now</p>
-          <p className="text-sm text-zinc-600">Street bowls, biryani combos, and quick bites are booming this week.</p>
+          <Card className="relative overflow-hidden rounded-3xl border-orange-200/60 bg-gradient-to-br from-white via-orange-50/70 to-amber-100/60 p-5 transition duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_16px_36px_rgba(249,115,22,0.2)]">
+          <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-orange-300/30 blur-2xl transition group-hover:scale-125" />
+          <p className="mb-2 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-orange-200 bg-white/90 text-orange-700 shadow-sm"><TrendingUp className="h-4 w-4" /></p>
+          <p className="text-base font-extrabold tracking-tight text-zinc-900">Trending Now</p>
+          <p className="mt-1 text-sm leading-relaxed text-zinc-700">Street bowls, biryani combos, and quick bites are booming this week.</p>
+          <p className="mt-3 inline-flex rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-orange-700">Hot this week</p>
           </Card>
         </button>
         <button
           type="button"
           onClick={() => runSearch("Fast delivery under 25 mins")}
-          className="text-left"
+          className="group text-left"
         >
-          <Card className="rounded-2xl border-orange-100 bg-white/90 p-4 transition hover:-translate-y-0.5 hover:shadow-[0_12px_24px_rgba(249,115,22,0.14)]">
-          <p className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-lg bg-amber-100 text-amber-700"><Clock3 className="h-4 w-4" /></p>
-          <p className="text-sm font-bold text-zinc-900">Fast Delivery Picks</p>
-          <p className="text-sm text-zinc-600">Use prompts like &ldquo;under 25 mins&rdquo; to prioritize speed.</p>
+          <Card className="relative overflow-hidden rounded-3xl border-amber-200/60 bg-gradient-to-br from-white via-amber-50/70 to-yellow-100/60 p-5 transition duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_16px_36px_rgba(245,158,11,0.2)]">
+          <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-amber-300/30 blur-2xl transition group-hover:scale-125" />
+          <p className="mb-2 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-amber-200 bg-white/90 text-amber-700 shadow-sm"><Clock3 className="h-4 w-4" /></p>
+          <p className="text-base font-extrabold tracking-tight text-zinc-900">Fast Delivery Picks</p>
+          <p className="mt-1 text-sm leading-relaxed text-zinc-700">Use prompts like &ldquo;under 25 mins&rdquo; to prioritize speed.</p>
+          <p className="mt-3 inline-flex rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-amber-700">Speed mode</p>
           </Card>
         </button>
         <button
           type="button"
           onClick={() => runSearch("Family meal under Rs 700")}
-          className="text-left"
+          className="group text-left"
         >
-          <Card className="rounded-2xl border-orange-100 bg-white/90 p-4 transition hover:-translate-y-0.5 hover:shadow-[0_12px_24px_rgba(249,115,22,0.14)]">
-          <p className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-lg bg-rose-100 text-rose-700"><Sparkles className="h-4 w-4" /></p>
-          <p className="text-sm font-bold text-zinc-900">Budget Smart</p>
-          <p className="text-sm text-zinc-600">Try &ldquo;family meal under Rs 700&rdquo; for value-first options.</p>
+          <Card className="relative overflow-hidden rounded-3xl border-rose-200/60 bg-gradient-to-br from-white via-rose-50/70 to-pink-100/60 p-5 transition duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_16px_36px_rgba(244,63,94,0.2)]">
+          <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-rose-300/30 blur-2xl transition group-hover:scale-125" />
+          <p className="mb-2 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-rose-200 bg-white/90 text-rose-700 shadow-sm"><Sparkles className="h-4 w-4" /></p>
+          <p className="text-base font-extrabold tracking-tight text-zinc-900">Budget Smart</p>
+          <p className="mt-1 text-sm leading-relaxed text-zinc-700">Try &ldquo;family meal under Rs 700&rdquo; for value-first options.</p>
+          <p className="mt-3 inline-flex rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-rose-700">Value first</p>
           </Card>
         </button>
       </section>

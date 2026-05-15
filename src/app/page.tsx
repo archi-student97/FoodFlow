@@ -20,21 +20,39 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="grid gap-4 md:grid-cols-3">
-        <Link href="/restaurants" className="rounded-2xl border border-white/70 bg-white/90 p-4 transition hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(0,0,0,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400">
-          <Flame className="mb-2 h-5 w-5 text-orange-500" />
-          <p className="font-semibold">Trending near you</p>
-          <p className="text-sm text-zinc-600">Fresh picks curated from top local favorites.</p>
+      <section className="grid gap-5 md:grid-cols-3">
+        <Link
+          href="/restaurants"
+          className="group relative overflow-hidden rounded-3xl border border-orange-200/60 bg-gradient-to-br from-white via-orange-50/70 to-amber-100/60 p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(251,146,60,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
+        >
+          <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-orange-300/30 blur-2xl transition group-hover:scale-125" />
+          <span className="mb-4 inline-flex rounded-2xl border border-orange-200 bg-white/90 p-2.5 shadow-sm">
+            <Flame className="h-5 w-5 text-orange-500" />
+          </span>
+          <p className="text-xl font-extrabold tracking-tight text-zinc-900">Trending near you</p>
+          <p className="mt-2 text-sm leading-relaxed text-zinc-700">Fresh picks curated from top local favorites.</p>
         </Link>
-        <Link href="/search" className="rounded-2xl border border-white/70 bg-white/90 p-4 transition hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(0,0,0,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400">
-          <Leaf className="mb-2 h-5 w-5 text-emerald-500" />
-          <p className="font-semibold">Healthy smart picks</p>
-          <p className="text-sm text-zinc-600">Recommendations based on your meal goals.</p>
+        <Link
+          href="/search"
+          className="group relative overflow-hidden rounded-3xl border border-emerald-200/60 bg-gradient-to-br from-white via-emerald-50/70 to-teal-100/60 p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(16,185,129,0.2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+        >
+          <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-emerald-300/30 blur-2xl transition group-hover:scale-125" />
+          <span className="mb-4 inline-flex rounded-2xl border border-emerald-200 bg-white/90 p-2.5 shadow-sm">
+            <Leaf className="h-5 w-5 text-emerald-500" />
+          </span>
+          <p className="text-xl font-extrabold tracking-tight text-zinc-900">Healthy smart picks</p>
+          <p className="mt-2 text-sm leading-relaxed text-zinc-700">Recommendations based on your meal goals.</p>
         </Link>
-        <Link href="/search" className="rounded-2xl border border-white/70 bg-white/90 p-4 transition hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(0,0,0,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400">
-          <Bot className="mb-2 h-5 w-5 text-rose-500" />
-          <p className="font-semibold">Ask and discover</p>
-          <p className="text-sm text-zinc-600">Search naturally: spicy under Rs 300, comfort food, and more.</p>
+        <Link
+          href="/search"
+          className="group relative overflow-hidden rounded-3xl border border-rose-200/60 bg-gradient-to-br from-white via-rose-50/70 to-pink-100/60 p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(244,63,94,0.2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
+        >
+          <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-rose-300/30 blur-2xl transition group-hover:scale-125" />
+          <span className="mb-4 inline-flex rounded-2xl border border-rose-200 bg-white/90 p-2.5 shadow-sm">
+            <Bot className="h-5 w-5 text-rose-500" />
+          </span>
+          <p className="text-xl font-extrabold tracking-tight text-zinc-900">Ask and discover</p>
+          <p className="mt-2 text-sm leading-relaxed text-zinc-700">Search naturally: spicy under Rs 300, comfort food, and more.</p>
         </Link>
       </section>
 

@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"$ports = 3000,3001; foreach($p in $ports){ $lines = netstat -ano | Select-String \":$p\" | Select-String 'LISTENING'; foreach($l in $lines){ $targetPid = ($l -split '\\s+')[-1]; if($targetPid -match '^[0-9]+$'){ taskkill /PID $targetPid /F 2>$null | Out-Null } } }; next dev -p 3000\"",
+    "dev:full": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"Start-Process -FilePath 'powershell' -ArgumentList '-NoProfile -WindowStyle Hidden -Command cd ''c:\\Food Delivery\\foodflow-ai\\backend''; npm run dev' -WindowStyle Hidden; Start-Sleep -Seconds 5; npm run dev\"",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
