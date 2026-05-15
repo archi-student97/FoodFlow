@@ -16,6 +16,8 @@
 # next.js
 /.next/
 /.next-prod/
+/.next-frontend/
+/.next-backend/
 **/.next/
 **/.next-prod/
 **/.next-prod*/
