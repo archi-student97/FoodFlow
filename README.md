@@ -1,12 +1,16 @@
 # FoodFlow
 
-FoodFlow is a full-stack food delivery platform with:
-- A **frontend Next.js app** for customers, owners, and admins
-- A **backend Next.js API app** for auth, restaurants, menu, orders, favorites, and reviews
+FoodFlow is a full-stack food delivery platform built with Next.js.
+This repo contains both applications:
+- Frontend app (`./`) for customer, owner, and admin panels
+- Backend app (`./backend`) for API routes, auth, and data layer
 
-This repository contains both apps:
-- Frontend: `./`
-- Backend: `./backend`
+## What You Get
+
+- Customer flow: browse restaurants, cart, checkout, orders, profile
+- Owner flow: menu, orders, analytics, restaurant management
+- Admin flow: users, restaurants, platform analytics
+- API layer: auth, restaurants, menu, favorites, orders, reviews
 
 ## Tech Stack
 
@@ -21,33 +25,29 @@ Backend:
 - Next.js 16 Route Handlers
 - MongoDB + Mongoose
 - JWT auth
-- Cloudinary (media)
+- Cloudinary integration
 - Zod validation
 
-## Project Structure
+## Repository Structure
 
 ```text
 foodflow-ai/
-  src/                  # Frontend source
-  backend/              # Backend Next.js app
-    src/app/api/**      # API routes
+  src/                    # Frontend source
+  backend/                # Backend Next.js app
+    src/app/api/**        # API route handlers
 ```
 
-Detailed architecture is documented in [ARCHITECTURE.md](./ARCHITECTURE.md).
+Architecture details: [ARCHITECTURE.md](./ARCHITECTURE.md)
 
 ## Prerequisites
 
 - Node.js 20+
 - npm 10+
-- MongoDB database
+- MongoDB instance
 
 ## Environment Variables
 
-Create backend env file:
-
-- `backend/.env.local`
-
-Use this template:
+Create `backend/.env.local`:
 
 ```env
 MONGODB_URI=
@@ -59,51 +59,43 @@ CLOUDINARY_API_KEY=
 CLOUDINARY_API_SECRET=
 ```
 
-Frontend API base URL (optional in local):
+Optional for frontend:
+- `NEXT_PUBLIC_API_BASE_URL` (default fallback: `http://localhost:4000`)
 
-- `NEXT_PUBLIC_API_BASE_URL` (defaults to `http://localhost:4000` if not provided)
+## Local Setup
 
-## Installation
-
-From repository root:
+Install dependencies:
 
 ```bash
 npm install
 cd backend && npm install
 ```
 
-## Run Locally
+## Run the Project
 
-### Option 1: Frontend only
-
-From root:
+Frontend only (root):
 
 ```bash
 npm run dev
 ```
 
-Frontend runs on `http://localhost:3000`.
-
-### Option 2: Frontend + Backend together
-
-From root:
+Frontend + Backend together (root):
 
 ```bash
 npm run dev:full
 ```
 
-- Frontend: `http://localhost:3000`
-- Backend: `http://localhost:4000`
-
-### Option 3: Backend only
-
-From `backend/`:
+Backend only (`backend/`):
 
 ```bash
 npm run dev
 ```
 
-## Build & Start
+Local URLs:
+- Frontend: `http://localhost:3000`
+- Backend: `http://localhost:4000`
+
+## Production Build
 
 Frontend:
 
@@ -120,45 +112,45 @@ npm run build
 npm run start
 ```
 
-## Deployment (Recommended)
+## Deployment Guide (Recommended)
 
-Use **two Vercel projects** for stable deployment:
+Use **2 separate Vercel projects** for stable deployment.
 
-1. Frontend project
-- Root directory: repository root (`foodflow-ai`)
+1. Frontend Project
+- Root Directory: repo root (`foodflow-ai`)
 - Framework: Next.js
 
-2. Backend project
-- Root directory: `backend`
+2. Backend Project
+- Root Directory: `backend`
 - Framework: Next.js
 
-Then set frontend env variable in Vercel:
-- `NEXT_PUBLIC_API_BASE_URL=<your-backend-vercel-url>`
+Then set this env in frontend Vercel project:
+- `NEXT_PUBLIC_API_BASE_URL=<backend-vercel-url>`
 
-This avoids multi-service function collisions.
+This setup avoids multi-service function collisions.
 
 ## Scripts
 
 Root scripts:
-- `npm run dev` - start frontend dev server on 3000
-- `npm run dev:full` - start backend + frontend
-- `npm run build` - build frontend
-- `npm run start` - start frontend production server
-- `npm run lint` - lint frontend
+- `npm run dev` - frontend dev server (3000)
+- `npm run dev:full` - backend + frontend
+- `npm run build` - frontend production build
+- `npm run start` - frontend production server
+- `npm run lint` - frontend lint
 
 Backend scripts (`backend/`):
-- `npm run dev` - start backend dev server on 4000
-- `npm run build` - build backend
-- `npm run start` - start backend production server on 4000
-- `npm run lint` - lint backend
+- `npm run dev` - backend dev server (4000)
+- `npm run build` - backend production build
+- `npm run start` - backend production server (4000)
+- `npm run lint` - backend lint
 
 ## Troubleshooting
 
-- If port conflicts happen (`3000`/`4000`), rerun scripts; they already attempt to stop old processes.
-- If Windows file lock errors appear in `.next`, stop running node processes and build again.
-- If frontend cannot reach API, verify `NEXT_PUBLIC_API_BASE_URL`.
+- Port busy (`3000`/`4000`): rerun dev scripts; they attempt to clear old listeners.
+- Windows `.next` lock (`EPERM`): stop running node processes and rebuild.
+- API not reachable from frontend: verify `NEXT_PUBLIC_API_BASE_URL`.
 
-## Notes
+## Important Notes
 
-- `backend/` is a standalone app, not just a subfolder of frontend source.
-- Keep dependency install and scripts scoped correctly (`root` vs `backend`).
+- `backend/` is a standalone Next.js app.
+- Keep commands scoped correctly (`root` vs `backend`).
