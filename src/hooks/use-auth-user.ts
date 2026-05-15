@@ -38,6 +38,12 @@ export function useAuthUser() {
     void syncUser();
 
     const onAuthChanged = () => {
+      const authHint = typeof window !== "undefined" ? localStorage.getItem(AUTH_HINT_KEY) : null;
+      if (!authHint) {
+        setUser(null);
+        setLoading(false);
+        return;
+      }
       setLoading(true);
       void syncUser();
     };

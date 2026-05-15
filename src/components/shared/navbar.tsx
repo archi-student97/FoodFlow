@@ -18,7 +18,6 @@ export function Navbar() {
     setLoggingOut(true);
     try {
       await authService.logout();
-      localStorage.removeItem("foodflow_logged_in");
       window.dispatchEvent(new Event("auth-changed"));
       router.refresh();
       router.push("/");
