@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"$lines = netstat -ano | Select-String ':4000' | Select-String 'LISTENING'; foreach($l in $lines){ $targetPid = ($l -split '\\s+')[-1]; if($targetPid -match '^[0-9]+$'){ taskkill /PID $targetPid /F 2>$null | Out-Null } }; next dev -p 4000\"",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start -p 4000",
     "lint": "eslint"
   },
@@ -32,3 +32,4 @@
     "typescript": "^5"
   }
 }
+
