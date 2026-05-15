@@ -30,14 +30,10 @@ export function LoginForm() {
       const user = await authService.login(values.email, values.password);
       if (user.role !== values.role) {
         await authService.logout();
-        localStorage.removeItem("foodflow_logged_in");
-        window.dispatchEvent(new Event("auth-changed"));
         toast.error(`This account is ${user.role.toLowerCase()}. Please choose the correct login type.`);
         return;
       }
 
-      localStorage.setItem("foodflow_logged_in", "1");
-      window.dispatchEvent(new Event("auth-changed"));
       toast.success("Logged in successfully");
       if (user.role === "ADMIN") {
         router.push("/admin");

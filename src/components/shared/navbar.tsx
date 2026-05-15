@@ -16,9 +16,6 @@ export function Navbar() {
 
   const handleLogout = async () => {
     setLoggingOut(true);
-    localStorage.removeItem("foodflow_auth_user");
-    localStorage.removeItem("foodflow_logged_in");
-    window.dispatchEvent(new Event("auth-changed"));
     try {
       await authService.logout();
     } finally {

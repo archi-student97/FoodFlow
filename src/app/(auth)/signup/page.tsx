@@ -29,8 +29,6 @@ export default function SignupPage() {
   const onSubmit = async (values: z.infer<typeof schema>) => {
     try {
       await authService.signup(values.name, values.email, values.password, values.role);
-      localStorage.setItem("foodflow_logged_in", "1");
-      window.dispatchEvent(new Event("auth-changed"));
       toast.success("Account created");
       if (values.role === "ADMIN") {
         router.push("/admin");

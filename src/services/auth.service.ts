@@ -9,10 +9,12 @@ function saveLocalUser(user: AuthUser | null) {
   if (!user) {
     localStorage.removeItem(AUTH_KEY);
     localStorage.removeItem(AUTH_HINT_KEY);
+    window.dispatchEvent(new Event("auth-changed"));
     return;
   }
   localStorage.setItem(AUTH_KEY, JSON.stringify(user));
   localStorage.setItem(AUTH_HINT_KEY, "1");
+  window.dispatchEvent(new Event("auth-changed"));
 }
 
 export const authService = {
