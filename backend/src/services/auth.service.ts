@@ -26,6 +26,13 @@ export const authService = {
   },
   async logout() {
     const store = await cookies();
-    store.delete(COOKIE_NAME);
+    store.set(COOKIE_NAME, "", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      path: "/",
+      expires: new Date(0),
+      maxAge: 0,
+    });
   },
 };
