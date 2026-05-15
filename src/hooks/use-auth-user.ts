@@ -25,7 +25,6 @@ export function useAuthUser() {
         const data = await authService.me();
         if (!mounted) return;
         setUser(data);
-        localStorage.setItem(AUTH_HINT_KEY, "1");
       } catch {
         if (!mounted) return;
         setUser(null);
