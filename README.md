@@ -114,26 +114,33 @@ npm run start
 
 ## Deployment Guide (Recommended)
 
-Use **2 separate Vercel projects** for stable deployment.
+Use **2 separate Vercel projects** from the same GitHub repo for stable deployment.
 
-1. Frontend Project
-- Root Directory: repo root (`foodflow-ai`)
-- Framework: Next.js
-
-2. Backend Project
+1. Backend Project (create first)
+- Import same repo
 - Root Directory: `backend`
-- Framework: Next.js
+- Framework Preset: Next.js
+- Required envs:
+  - `MONGODB_URI`
+  - `JWT_SECRET`
+  - `JWT_EXPIRES_IN`
+  - `GEMINI_API_KEY`
+  - `CLOUDINARY_CLOUD_NAME`
+  - `CLOUDINARY_API_KEY`
+  - `CLOUDINARY_API_SECRET`
+- Deploy and copy backend URL, e.g. `https://foodflow-backend.vercel.app`
 
-Then set this env in frontend Vercel project:
-- `NEXT_PUBLIC_API_BASE_URL=<backend-vercel-url>`
-- Example: `NEXT_PUBLIC_API_BASE_URL=https://your-backend-project.vercel.app`
-- If this is missing, frontend `/bapi/*` calls may fail or auth state may behave incorrectly.
+2. Frontend Project (create second)
+- Import same repo
+- Root Directory: repo root (`foodflow-ai`)
+- Framework Preset: Next.js
+- Required env:
+  - `NEXT_PUBLIC_API_BASE_URL=https://<your-backend-project>.vercel.app`
 
-Fresh deploy order (important):
-1. Deploy backend project first (`backend/` as Root Directory).
-2. Copy backend production URL.
-3. Set frontend env `NEXT_PUBLIC_API_BASE_URL` to that backend URL.
-4. Deploy frontend project (repo root as Root Directory).
+Important:
+- Frontend uses `/bapi/*` rewrite to `NEXT_PUBLIC_API_BASE_URL/api/*`.
+- If `NEXT_PUBLIC_API_BASE_URL` is missing in production, build will fail intentionally.
+- Deploy backend first, then frontend.
 
 This setup avoids multi-service function collisions.
 
