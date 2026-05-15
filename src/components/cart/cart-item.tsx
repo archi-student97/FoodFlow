@@ -19,12 +19,12 @@ export function CartItem() {
   return (
     <div className="space-y-3">
       {items.map((i) => (
-        <div key={i.id} className="flex items-center justify-between rounded-2xl border border-white/80 bg-white/90 p-4 shadow-sm">
+        <div key={i.id} className="flex flex-col gap-3 rounded-2xl border border-white/80 bg-white/90 p-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="font-semibold text-zinc-900">{i.name}</p>
             <p className="text-xs text-zinc-500">Rs {i.price} each</p>
           </div>
-          <div className="flex items-center gap-2 rounded-full bg-zinc-100 px-2 py-1">
+          <div className="flex w-fit items-center gap-2 rounded-full bg-zinc-100 px-2 py-1">
             <button onClick={() => dec(i.id)} className="rounded-full p-1 text-zinc-700 hover:bg-white" aria-label="Decrease quantity">
               <Minus className="h-4 w-4" />
             </button>

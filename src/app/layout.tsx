@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="font-[var(--font-jakarta)]">
         <Providers>
           <Navbar />
-          <main className="mx-auto min-h-[80vh] w-full max-w-7xl px-4 py-6">{children}</main>
+          <main className="mx-auto min-h-[80vh] w-full max-w-7xl px-3 py-5 sm:px-4 sm:py-6">{children}</main>
           <Footer />
         </Providers>
       </body>
