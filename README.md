@@ -189,7 +189,5 @@ Backend scripts (`backend/`):
 - Windows `.next` lock (`EPERM`): stop running node processes and rebuild.
 - API not reachable from frontend: verify `NEXT_PUBLIC_API_BASE_URL`.
 
-## Important Notes
-
-- `backend/` is a standalone Next.js app.
-- Keep commands scoped correctly (`root` vs `backend`).
+## Deployment Link
+https://food-flow-k7mx.vercel.app/
